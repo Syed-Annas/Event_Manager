@@ -6,7 +6,7 @@ import { Search, SlidersHorizontal, Sparkles, ArrowRight } from 'lucide-react';
 const categories = ['All', 'Music', 'Sports', 'Arts & Theatre', 'Film', 'Miscellaneous'];
 export default function Explore() {
   const dispatch = useDispatch();
-  const { items, total, totalPages = 0, loading, error } = useSelector(s => s.events);
+  const { items, total, totalPages = 0, source, loading, error } = useSelector(s => s.events);
   const [keyword, setKeyword] = useState(''); const [city, setCity] = useState('');
   const [category, setCategory] = useState('All'); const [upcoming, setUpcoming] = useState(true);
   const [page, setPage] = useState(0);
@@ -34,6 +34,7 @@ export default function Explore() {
   </div><div className="hero-orb orb-one"/><div className="hero-orb orb-two"/></section>
   <main className="container section"><div className="section-heading"><div><span className="overline">EXPLORE WHAT'S HAPPENING</span><h2>Discover events</h2><p>Something exciting is always around the corner.</p></div><div className="filter-label"><SlidersHorizontal size={17}/> Browse by category</div></div>
   <div className="filters">{categories.map(c => <button key={c} className={`filter-chip ${category===c?'selected':''}`} onClick={()=>selectCategory(c)}>{c}</button>)}<label className="upcoming-toggle"><input type="checkbox" checked={upcoming} onChange={e=>setUpcomingFilter(e.target.checked)}/> Upcoming only</label></div>
+  {source === 'sample' && !loading && <div className="sample-data-notice" role="status">Showing sample events bundled with this project. Add a Ticketmaster API key to load live listings.</div>}
   {loading ? <div className="status">Finding amazing events...</div> : error ? <div className="status error">{error}<br/><button className="btn btn-outline" onClick={()=>dispatch(fetchEvents({ ...search, page }))}>Try again</button></div> : items.length ? <><div className="results-count">Showing {items.length} of {total.toLocaleString()} events</div><div className="event-grid">{items.map(e=><EventCard key={e.id} event={e}/>)}</div>
   {totalPages > 1 && <nav className="pagination" aria-label="Event pages"><button className="btn btn-outline" onClick={()=>setPage(p=>Math.max(0,p-1))} disabled={page===0}>Previous</button><span>Page {page+1} of {totalPages}</span><button className="btn btn-outline" onClick={()=>setPage(p=>Math.min(totalPages-1,p+1))} disabled={page>=totalPages-1}>Next</button></nav>}
   </> : <div className="status">No events found. Try a different city, keyword, or category.</div>}

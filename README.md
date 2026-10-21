@@ -15,7 +15,7 @@ A responsive React application built for **Web Programming Assignment 2**. Brows
 1. Install **Node.js 18+**.
 2. Open the project folder in VS Code.
 3. Run `npm install`.
-4. Create `.env` in the project root using `.env.example` as a template.
+4. Create `.env` in the project root using `.env.example` as a template. Without a key, the app displays bundled sample events so you can explore the interface.
 5. Get a **Consumer Key** from https://developer.ticketmaster.com/.
 6. Set `VITE_TICKETMASTER_API_KEY=your_actual_key` in `.env`.
 7. Run `npm run dev`, then open the localhost URL shown in the terminal.
@@ -25,7 +25,7 @@ A responsive React application built for **Web Programming Assignment 2**. Brows
 ## Features
 - Register, log in, log out; login survives refresh
 - Search by keyword/city, filter by category and upcoming status
-- Browse paginated Ticketmaster search results
+- Browse bundled sample events without a key, or live and paginated Ticketmaster search results with a key
 - View event image, venue, location, category, date, time and description
 - Register for upcoming events; prevent duplicates
 - Cancel registration and view upcoming/completed registrations
@@ -50,6 +50,7 @@ A responsive React application built for **Web Programming Assignment 2**. Brows
 ## Important limitations
 - **Authentication is simulated entirely in the browser.** Demo passwords are stored in plaintext in Local Storage. Never enter a real password or use this design in production.
 - Registration means saving the event to this demo app, **not buying a Ticketmaster ticket**.
+- Bundled sample listings are illustrative project data, not real or Ticketmaster-sourced events.
 - API responses, quotas, and event availability depend on Ticketmaster.
 
 ## Git and GitHub submission

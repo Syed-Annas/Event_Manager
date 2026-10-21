@@ -18,5 +18,5 @@ export const isUpcoming = event => {
 export const snapshot = event => ({
   id: event.id, name: event.name, images: event.images, dates: event.dates,
   classifications: event.classifications, _embedded: { venues: event._embedded?.venues || [] },
-  url: event.url
+  url: event.url, isSampleData: event.isSampleData
 });

@@ -26,6 +26,7 @@ export default function EventDetails() {
     <div className="details-layout"><article><span className="overline">THE EXPERIENCE</span><h1>{event.name}</h1><div className="details-info"><span><CalendarDays size={18}/>{formatDate(date)}</span><span><MapPin size={18}/>{eventLocation(event)}</span></div>
       <h2>About this event</h2><p>{event.info || event.pleaseNote || 'Get ready for an incredible live experience. Explore the event details and secure your spot.'}</p>
       {event.pleaseNote && event.info && <p>{event.pleaseNote}</p>}
+      {event.isSampleData && <div className="sample-data-notice" role="note">This is sample event information bundled with the project, not a live Ticketmaster listing.</div>}
       {event.url && <a className="external-link" href={event.url} target="_blank" rel="noreferrer">View official Ticketmaster listing <ExternalLink size={16}/></a>}
     </article><aside className="booking-card"><div className="booking-icon"><Ticket size={24}/></div><h3>Event details</h3>
       <div className="booking-row"><CalendarDays size={19}/><div><small>Date</small><strong>{formatDate(date)}</strong></div></div>
