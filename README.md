@@ -26,6 +26,7 @@ A responsive React application built for **Web Programming Assignment 2**. Brows
 - Register, log in, log out; login survives refresh
 - Search by keyword/city, filter by category and upcoming status
 - Browse bundled sample events without a key, or live and paginated Ticketmaster search results with a key
+- Bundled sample events include local, offline-ready photos
 - View event image, venue, location, category, date, time and description
 - Register for upcoming events; prevent duplicates
 - Cancel registration and view upcoming/completed registrations
@@ -51,6 +52,7 @@ A responsive React application built for **Web Programming Assignment 2**. Brows
 - **Authentication is simulated entirely in the browser.** Demo passwords are stored in plaintext in Local Storage. Never enter a real password or use this design in production.
 - Registration means saving the event to this demo app, **not buying a Ticketmaster ticket**.
 - Bundled sample listings are illustrative project data, not real or Ticketmaster-sourced events.
+- Sample photos are from Unsplash and are included as local files in `public/images/`.
 - API responses, quotas, and event availability depend on Ticketmaster.
 
 ## Git and GitHub submission

@@ -4,12 +4,12 @@ const daysFromToday = days => {
   return date.toISOString().slice(0, 10);
 };
 
-const makeEvent = ({ id, name, daysAhead, time, segment, genre, venue, city, state, country, info }) => ({
+const makeEvent = ({ id, name, image, daysAhead, time, segment, genre, venue, city, state, country, info }) => ({
   id,
   name,
   type: 'event',
   info,
-  images: [],
+  images: [{ url: image, ratio: '16_9', width: 1200, height: 675 }],
   dates: {
     start: {
       localDate: daysFromToday(daysAhead),
@@ -38,6 +38,7 @@ export const sampleEvents = [
   makeEvent({
     id: 'sample-live-music-night',
     name: 'Live Music Under the Stars',
+    image: '/images/sample-concert.jpg',
     daysAhead: 7,
     time: '19:30:00',
     segment: 'Music',
@@ -51,6 +52,7 @@ export const sampleEvents = [
   makeEvent({
     id: 'sample-city-marathon',
     name: 'City Lights 10K',
+    image: '/images/sample-running.jpg',
     daysAhead: 14,
     time: '08:00:00',
     segment: 'Sports',
@@ -64,6 +66,7 @@ export const sampleEvents = [
   makeEvent({
     id: 'sample-contemporary-art',
     name: 'Beyond the Frame: Contemporary Art',
+    image: '/images/sample-art.jpg',
     daysAhead: 21,
     time: '11:00:00',
     segment: 'Arts & Theatre',
@@ -77,6 +80,7 @@ export const sampleEvents = [
   makeEvent({
     id: 'sample-film-festival',
     name: 'Independent Film Weekend',
+    image: '/images/sample-cinema.jpg',
     daysAhead: 28,
     time: '18:00:00',
     segment: 'Film',
@@ -90,6 +94,7 @@ export const sampleEvents = [
   makeEvent({
     id: 'sample-food-festival',
     name: 'Neighborhood Food & Culture Fair',
+    image: '/images/sample-food.jpg',
     daysAhead: 35,
     time: '12:00:00',
     segment: 'Miscellaneous',
@@ -103,6 +108,7 @@ export const sampleEvents = [
   makeEvent({
     id: 'sample-jazz-evening',
     name: 'Sunday Jazz Sessions',
+    image: '/images/sample-jazz.jpg',
     daysAhead: 42,
     time: '20:00:00',
     segment: 'Music',
